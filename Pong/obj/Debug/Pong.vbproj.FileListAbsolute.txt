@@ -1,0 +1,11 @@
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\bin\Debug\Pong.exe.config
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\bin\Debug\Pong.exe
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\bin\Debug\Pong.pdb
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\bin\Debug\Pong.xml
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\obj\Debug\Pong.Resources.resources
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\obj\Debug\Pong.vbproj.GenerateResource.Cache
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\obj\Debug\Pong.exe
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\obj\Debug\Pong.xml
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\obj\Debug\Pong.pdb
+c:\users\duncan g. britton\documents\visual studio 2013\Projects\Pong\Pong\obj\Debug\Pong.pongTable.resources
+C:\Users\Duncan G. Britton\documents\visual studio 2013\Projects\Pong\Pong\obj\Debug\Pong.vbprojResolveAssemblyReference.cache
