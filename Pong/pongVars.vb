@@ -1,5 +1,5 @@
 ﻿Module pongVars
-    Public Enum Difficulty ' An enumeration used to define the speed of the ball on different levels of difficulty.
+    Friend Enum Difficulty ' An enumeration used to define the speed of the ball on different levels of difficulty.
         Noob = 5
         Easy = 7
         Normal = 9
@@ -7,14 +7,11 @@
         Danger = 13
     End Enum
 
-    Public gameRunning As Boolean = False ' A boolean value used to indicate if the game is currently running or paused.
-    Public XVelocity As Single = 5 ' The ball's x-velocity.
-    Public YVelocity As Single = 5 ' The ball's y-velocity.
-    Public computerScore As UShort = 0 ' The computer player's score.
-    Public playerScore As UShort = 0 ' The human player's score.
+    Friend gameRunning As Boolean = False ' A boolean value used to indicate if the game is currently running or paused.
+    Friend XVelocity As Single ' The ball's x-velocity.
+    Friend YVelocity As Single ' The ball's y-velocity.
+    Friend computerScore As UShort = 0 ' The computer player's score.
+    Friend playerScore As UShort = 0 ' The human player's score.
 
-    Public dashedPen As New Pen(Brushes.White, 2) ' The pen used to draw the line through the middle of the form.
-
-    Public rightBounce(7) As Rectangle ' The rectangles associated with the right paddle used to determine angle of ball bounce.
-    Public leftBounce(7) As Rectangle ' Above, except for the left paddle.x
+    Friend decorationHeight As UShort = SystemInformation.CaptionHeight ' The height of the window decoration.
 End Module

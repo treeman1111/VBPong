@@ -14,11 +14,16 @@ Pong
 	<param name="e">A KeyEventArg.</param>
 	<remarks>The following keyboard shortcuts are currently supported: p [pauses and unpauses];
  d [changes the difficulty level]; n [starts a new game]; and q [exits the application].</remarks>
+</member><member name="M:Pong.pongTable.pongTable_Load(System.Object,System.EventArgs)">
+	<summary>
+ Positions the pong ball and paddles in their correct locations.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
 </member><member name="M:Pong.pongTable.pongTable_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
 	<summary>
- Used to draw a dashed line down the middle of the form when it is first painted and, perhaps inappropriately, to correctly
- position the labels that are used to keep track of score: lblComputerScore and lblPlayerScore and to position the ball in it's
- starting location.
+ Used to generate the pong table.
  </summary>
 	<param name="sender">An Object.</param>
 	<param name="e">A PaintEventArg.</param>
@@ -81,18 +86,11 @@ Pong
  Reverses the YVelocity in pongVars.
  </summary>
 	<remarks>This sub is called if the ball hits the top or bottom edge of the form.</remarks>
-</member><member name="M:Pong.ballLogic.generateBounceRects">
-	<summary>
- Populate the rightBounce and leftBounce rectangle arrays with eight different rectangles.
- These eight rectangles divide each paddle into eight equal pieces and are used to change the angle of bounce
- when the ball impacts on the paddle.
- </summary>
-	<remarks></remarks>
-</member><member name="M:Pong.ballLogic.verticalBounce">
+</member><member name="M:Pong.ballLogic.verticalBounce(System.String)">
 	<summary>
  Changes the ball's X and Y velocities in pongVars.
  </summary>
-	<remarks>Called when the ball intersects with one of the bounce rectangles for the left or right paddles.</remarks>
+	<remarks>Called when the ball intersects with one of the paddles.</remarks>
 </member>
 </members>
 </doc>

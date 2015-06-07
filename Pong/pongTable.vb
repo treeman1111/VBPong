@@ -11,11 +11,11 @@
     Private Sub pongTable_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         Select Case e.KeyCode
             Case Keys.P
-                If pongVars.gameRunning Then
-                    pongVars.gameRunning = False
+                If gameRunning Then
+                    gameRunning = False
                     pongTimer.Enabled = False
                 Else
-                    pongVars.gameRunning = True
+                    gameRunning = True
                     pongTimer.Enabled = True
                 End If
             Case Keys.D
@@ -29,25 +29,39 @@
     End Sub
 #End Region
 
-#Region "Paint event"
+#Region "Form load event"
     ''' <summary>
-    ''' Used to draw a dashed line down the middle of the form when it is first painted and, perhaps inappropriately, to correctly
-    ''' position the labels that are used to keep track of score: lblComputerScore and lblPlayerScore and to position the ball in it's
-    ''' starting location.
+    ''' Positions the pong ball and paddles in their correct locations.
     ''' </summary>
-    ''' <param name="sender">An Object.</param>
-    ''' <param name="e">A PaintEventArg.</param>
-    ''' <remarks></remarks>
-    Private Sub pongTable_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
-        pongVars.dashedPen.DashStyle = Drawing2D.DashStyle.Dash ' Set the dash style of the pen created in pongVars to Drawing2D.DashStyle.Dash.
-        e.Graphics.DrawLine(pongVars.dashedPen, New Point(Me.Width / 2, 0), New Point(Me.Width / 2, Me.Height)) ' Draw the bisecting line.
-
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks>This sub is also used each time a player scores to reset the ball, paddles, and X/Y velocities of the ball.</remarks>
+    Friend Sub pongTable_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Position the two score labels
         lblComputerScore.Location = New Point((Me.Width / 2) + 20, 6)
         lblPlayerScore.Location = New Point(((Me.Width / 2) - lblPlayerScore.Width - 20), 6)
 
         ' Center the ball in the middle of the form.
-        pongBall.Location = New Point((Me.Width / 2) - (pongBall.Width / 2), (Me.Height / 2) - (pongBall.Height / 2))
+        pongBall.Location = New Point((Me.Width / 2) - (pongBall.Width / 2), ((Me.Height - decorationHeight) / 2) - (pongBall.Height / 2))
+
+        ' Set the velocities of the ball to defaults:
+        XVelocity = -5
+        YVelocity = -5
+    End Sub
+#End Region
+
+#Region "Paint event"
+    ''' <summary>
+    ''' Used to generate the pong table.
+    ''' </summary>
+    ''' <param name="sender">An Object.</param>
+    ''' <param name="e">A PaintEventArg.</param>
+    ''' <remarks></remarks>
+    Private Sub pongTable_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
+        Dim dashedPen As New Pen(Brushes.White, 3)
+        dashedPen.DashStyle = Drawing2D.DashStyle.Dash
+
+        e.Graphics.DrawLine(dashedPen, New Point(Me.Width / 2, 0), New Point(Me.Width / 2, Me.Height - decorationHeight))
     End Sub
 #End Region
 
@@ -61,20 +75,27 @@
     ''' <remarks></remarks>
     Private Sub pongTimer_Tick(sender As Object, e As EventArgs) Handles pongTimer.Tick
         ballLogic.moveBall()
-        ballLogic.generateBounceRects()
         computerLogic.trackBall()
-        ballLogic.verticalBounce()
+        pongGame.updateScores()
 
         If pongBall.Top <= 0 Or pongBall.Bottom() >= Me.Height - 40 Then
             ballLogic.horizontalBounce()
         End If
 
-        If pongBall.Left <= leftPaddle.Right Then
-            pongVars.computerScore += 1
+        If pongBall.Location.X <= leftPaddle.Location.X Then
+            computerScore += 1
+            setupNextRound()
         End If
 
-        If pongBall.Right >= rightPaddle.Left Then
-            pongVars.playerScore += 1
+        If pongBall.Location.X >= rightPaddle.Location.X Then
+            playerScore += 1
+            setupNextRound()
+        End If
+
+        If pongBall.Bounds.IntersectsWith(leftPaddle.Bounds) Then
+            ballLogic.verticalBounce("left")
+        ElseIf pongBall.Bounds.IntersectsWith(rightPaddle.Bounds) Then
+            ballLogic.verticalBounce("right")
         End If
     End Sub
 #End Region
@@ -89,7 +110,7 @@
     ''' <param name="e">A MouseEventArg</param>
     ''' <remarks></remarks>
     Private Sub pongTable_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
-        If e.Location.Y > 6 And e.Location.Y < Me.Height - leftPaddle.Height - 40 And pongVars.gameRunning Then
+        If e.Location.Y > 6 And e.Location.Y < Me.Height - leftPaddle.Height - 40 And gameRunning Then
             leftPaddle.Location = New Point(leftPaddle.Location.X, e.Location.Y)
         End If
     End Sub

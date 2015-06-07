@@ -39,20 +39,20 @@ Partial Class pongTable
         Me.leftPaddle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.leftPaddle.BackColor = System.Drawing.Color.White
-        Me.leftPaddle.Location = New System.Drawing.Point(6, 239)
-        Me.leftPaddle.MaximumSize = New System.Drawing.Size(14, 112)
+        Me.leftPaddle.Location = New System.Drawing.Point(5, 240)
+        Me.leftPaddle.MaximumSize = New System.Drawing.Size(14, 111)
         Me.leftPaddle.Name = "leftPaddle"
-        Me.leftPaddle.Size = New System.Drawing.Size(14, 112)
+        Me.leftPaddle.Size = New System.Drawing.Size(14, 111)
         Me.leftPaddle.TabIndex = 0
         Me.leftPaddle.TabStop = False
         '
         'rightPaddle
         '
         Me.rightPaddle.BackColor = System.Drawing.Color.White
-        Me.rightPaddle.Location = New System.Drawing.Point(1117, 239)
-        Me.rightPaddle.MaximumSize = New System.Drawing.Size(14, 112)
+        Me.rightPaddle.Location = New System.Drawing.Point(1116, 240)
+        Me.rightPaddle.MaximumSize = New System.Drawing.Size(14, 111)
         Me.rightPaddle.Name = "rightPaddle"
-        Me.rightPaddle.Size = New System.Drawing.Size(14, 112)
+        Me.rightPaddle.Size = New System.Drawing.Size(14, 111)
         Me.rightPaddle.TabIndex = 1
         Me.rightPaddle.TabStop = False
         '
@@ -61,7 +61,7 @@ Partial Class pongTable
         Me.pongBall.BackColor = System.Drawing.Color.White
         Me.pongBall.Location = New System.Drawing.Point(557, 285)
         Me.pongBall.Name = "pongBall"
-        Me.pongBall.Size = New System.Drawing.Size(21, 21)
+        Me.pongBall.Size = New System.Drawing.Size(16, 16)
         Me.pongBall.TabIndex = 2
         Me.pongBall.TabStop = False
         '
@@ -71,8 +71,8 @@ Partial Class pongTable
         '
         'lblPlayerScore
         '
-        Me.lblPlayerScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPlayerScore.ForeColor = System.Drawing.Color.Cyan
+        Me.lblPlayerScore.Font = New System.Drawing.Font("Courier New", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPlayerScore.ForeColor = System.Drawing.Color.White
         Me.lblPlayerScore.Location = New System.Drawing.Point(512, 9)
         Me.lblPlayerScore.Name = "lblPlayerScore"
         Me.lblPlayerScore.Size = New System.Drawing.Size(36, 36)
@@ -82,8 +82,8 @@ Partial Class pongTable
         '
         'lblComputerScore
         '
-        Me.lblComputerScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblComputerScore.ForeColor = System.Drawing.Color.Cyan
+        Me.lblComputerScore.Font = New System.Drawing.Font("Courier New", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblComputerScore.ForeColor = System.Drawing.Color.White
         Me.lblComputerScore.Location = New System.Drawing.Point(598, 9)
         Me.lblComputerScore.Name = "lblComputerScore"
         Me.lblComputerScore.Size = New System.Drawing.Size(36, 36)
