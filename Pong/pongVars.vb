@@ -8,7 +8,6 @@
     End Enum
 
     Public gameRunning As Boolean = False ' A boolean value used to indicate if the game is currently running or paused.
-    Public ballSpeed As UShort = 1 ' The speed of the ball (increases slowly over time).
     Public XVelocity As Single = 5 ' The ball's x-velocity.
     Public YVelocity As Single = 5 ' The ball's y-velocity.
     Public computerScore As UShort = 0 ' The computer player's score.
@@ -16,6 +15,6 @@
 
     Public dashedPen As New Pen(Brushes.White, 2) ' The pen used to draw the line through the middle of the form.
 
-    Public rightBounce(2) As Rectangle ' The rectangles associated with the right paddle used to determine angle of ball bounce.
-    Public leftBounce(2) As Rectangle ' Above, except for the left paddle.x
+    Public rightBounce(7) As Rectangle ' The rectangles associated with the right paddle used to determine angle of ball bounce.
+    Public leftBounce(7) As Rectangle ' Above, except for the left paddle.x
 End Module

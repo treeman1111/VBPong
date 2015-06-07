@@ -6,7 +6,59 @@ Pong
 </name>
 </assembly>
 <members>
-<member name="P:Pong.My.Resources.Resources.ResourceManager">
+<member name="M:Pong.pongTable.pongTable_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+	<summary>
+ Checks for keyboard input on the pongTable. 
+ </summary>
+	<param name="sender">An Object.</param>
+	<param name="e">A KeyEventArg.</param>
+	<remarks>The following keyboard shortcuts are currently supported: p [pauses and unpauses];
+ d [changes the difficulty level]; n [starts a new game]; and q [exits the application].</remarks>
+</member><member name="M:Pong.pongTable.pongTable_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+	<summary>
+ Used to draw a dashed line down the middle of the form when it is first painted and, perhaps inappropriately, to correctly
+ position the labels that are used to keep track of score: lblComputerScore and lblPlayerScore and to position the ball in it's
+ starting location.
+ </summary>
+	<param name="sender">An Object.</param>
+	<param name="e">A PaintEventArg.</param>
+	<remarks></remarks>
+</member><member name="M:Pong.pongTable.pongTimer_Tick(System.Object,System.EventArgs)">
+	<summary>
+ The main part of the application, where the pongBall and rightPaddle are moved, score is recorded, and bounce rectangles are created
+ for both the left and right paddles.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Pong.pongTable.pongTable_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+	<summary>
+ Used to move the paddle on the left side of the form. If the mouse's position is greater than the y-position of 6
+ and less than the y-position of me.height - leftpaddle.height - 40, then move the leftPaddle to the mouse's current
+ y-pos.
+ </summary>
+	<param name="sender">An Object</param>
+	<param name="e">A MouseEventArg</param>
+	<remarks></remarks>
+</member><member name="M:Pong.pongGame.resetPong">
+	<summary>
+ Restarts the pong game: sets the score of the player and computer to zero, resets the paddle locations, and starts the game.
+ </summary>
+	<remarks>Called when Keys.N is pressed in pongTable.</remarks>
+</member><member name="M:Pong.pongGame.setupNextRound">
+	<summary>
+ This sub provides the methods to deal with a computer or player score. This mainly involves repositioning the ball and
+ setting its X and Y velocity in a way that makes it so that the ball travels in the direction opposite of the person
+ who was just scored upon.
+ </summary>
+	<remarks>Called whenerver computerScore or playerScore increased by one from the if statements at the bottom of the timer1_tick
+ event in pongTable.vb.</remarks>
+</member><member name="M:Pong.pongGame.updateScores">
+	<summary>
+ Add one point to the scored point total of the player that scored.
+ </summary>
+	<remarks>This sub is called from pongTable's pongTimer_Tick event.</remarks>
+</member><member name="P:Pong.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
@@ -19,6 +71,28 @@ Pong
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="M:Pong.ballLogic.moveBall">
+	<summary>
+ Moves the pongBall based on the ball's current X and Y coordinates and the pongVars X and Y velocities.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Pong.ballLogic.horizontalBounce">
+	<summary>
+ Reverses the YVelocity in pongVars.
+ </summary>
+	<remarks>This sub is called if the ball hits the top or bottom edge of the form.</remarks>
+</member><member name="M:Pong.ballLogic.generateBounceRects">
+	<summary>
+ Populate the rightBounce and leftBounce rectangle arrays with eight different rectangles.
+ These eight rectangles divide each paddle into eight equal pieces and are used to change the angle of bounce
+ when the ball impacts on the paddle.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Pong.ballLogic.verticalBounce">
+	<summary>
+ Changes the ball's X and Y velocities in pongVars.
+ </summary>
+	<remarks>Called when the ball intersects with one of the bounce rectangles for the left or right paddles.</remarks>
 </member>
 </members>
 </doc>

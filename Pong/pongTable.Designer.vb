@@ -27,6 +27,8 @@ Partial Class pongTable
         Me.rightPaddle = New System.Windows.Forms.PictureBox()
         Me.pongBall = New System.Windows.Forms.PictureBox()
         Me.pongTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.lblPlayerScore = New System.Windows.Forms.Label()
+        Me.lblComputerScore = New System.Windows.Forms.Label()
         CType(Me.leftPaddle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.rightPaddle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pongBall, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,7 +59,7 @@ Partial Class pongTable
         'pongBall
         '
         Me.pongBall.BackColor = System.Drawing.Color.White
-        Me.pongBall.Location = New System.Drawing.Point(24, 2)
+        Me.pongBall.Location = New System.Drawing.Point(557, 285)
         Me.pongBall.Name = "pongBall"
         Me.pongBall.Size = New System.Drawing.Size(21, 21)
         Me.pongBall.TabIndex = 2
@@ -67,16 +69,43 @@ Partial Class pongTable
         '
         Me.pongTimer.Interval = 1
         '
+        'lblPlayerScore
+        '
+        Me.lblPlayerScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPlayerScore.ForeColor = System.Drawing.Color.Cyan
+        Me.lblPlayerScore.Location = New System.Drawing.Point(512, 9)
+        Me.lblPlayerScore.Name = "lblPlayerScore"
+        Me.lblPlayerScore.Size = New System.Drawing.Size(36, 36)
+        Me.lblPlayerScore.TabIndex = 3
+        Me.lblPlayerScore.Text = "0"
+        Me.lblPlayerScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblComputerScore
+        '
+        Me.lblComputerScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblComputerScore.ForeColor = System.Drawing.Color.Cyan
+        Me.lblComputerScore.Location = New System.Drawing.Point(598, 9)
+        Me.lblComputerScore.Name = "lblComputerScore"
+        Me.lblComputerScore.Size = New System.Drawing.Size(36, 36)
+        Me.lblComputerScore.TabIndex = 4
+        Me.lblComputerScore.Text = "0"
+        Me.lblComputerScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'pongTable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(1135, 591)
+        Me.Controls.Add(Me.lblComputerScore)
+        Me.Controls.Add(Me.lblPlayerScore)
         Me.Controls.Add(Me.pongBall)
         Me.Controls.Add(Me.rightPaddle)
         Me.Controls.Add(Me.leftPaddle)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "pongTable"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pong!"
         CType(Me.leftPaddle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.rightPaddle, System.ComponentModel.ISupportInitialize).EndInit()
@@ -88,5 +117,7 @@ Partial Class pongTable
     Friend WithEvents leftPaddle As System.Windows.Forms.PictureBox
     Friend WithEvents rightPaddle As System.Windows.Forms.PictureBox
     Friend WithEvents pongBall As System.Windows.Forms.PictureBox
+    Friend WithEvents lblPlayerScore As System.Windows.Forms.Label
+    Friend WithEvents lblComputerScore As System.Windows.Forms.Label
 
 End Class
